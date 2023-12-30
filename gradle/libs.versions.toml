@@ -1,0 +1,54 @@
+[versions]
+agp = "8.2.0"
+imageLoaderVersion = "1.7.1"
+kotlin = "1.9.20"
+compose = "1.5.4"
+jetbrainsCompose = "1.5.11"
+compose-compiler = "1.5.4"
+compose-material3 = "1.1.2"
+androidx-activityCompose = "1.8.0"
+mokoMvvm = "0.16.1"
+ktor = "2.3.5"
+koinCore = "3.5.0"
+koinAndroidCompose = "3.4.6"
+sqlDelight = "2.0.0"
+kotlinxSerialization = "1.6.1"
+kermit = "2.0.0-RC4"
+
+[libraries]
+imageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "imageLoaderVersion" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+mokoCore = { module = "dev.icerock.moko:mvvm-core", version.ref = "mokoMvvm" }
+mokoCompose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "mokoMvvm" }
+mokoFlow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "mokoMvvm" }
+mokoFlowCompose = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "mokoMvvm" }
+ktorClientCore = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktorJsonSerialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktorClientAndroid = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktorClientDarwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktorClientLogging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktorContentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+koinCore = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
+koinTestJunit4 = { module = "io.insert-koin:koin-test-junit4", version.ref = "koinCore" }
+koinTest = { module = "io.insert-koin:koin-test", version.ref = "koinCore" }
+koinAndroid = { module = "io.insert-koin:koin-android", version.ref = "koinCore" }
+koinCompose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidCompose" }
+kotinxSerializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+kotinxSerializationCore = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerialization" }
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+#kotlinSerialization = { id = "kotlinx-serialization" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "jetbrainsCompose" }
