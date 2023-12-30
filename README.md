@@ -1,4 +1,4 @@
-# NewsAppDemo (Compose Multiplatform_
+# NewsAppDemo (Compose Multiplatform)
 
 This is an exploration app for Compose Multiplatform UI. Currently this app have Android, iOS and it is 100% Compose UI. For more details on Compose Multiplatform UI visit: https://github.com/JetBrains/compose-jb/
 The support for iOS on Compose Multiplatform is still in experimental phase.
