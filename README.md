@@ -28,10 +28,11 @@ Upcoming Supported Platform for this Demo:
 For running the app, you need an api to feed data. For Rest api, I am using [NewsAPI](https://newsapi.org/). You need to create a free account, get your api key and add it API_KEY in KtorApi class
 
 ## iOS
-
+https://github.com/NikhilBhutani/ComposeMultiplatformNewsAppDemo/assets/7945225/da1745fd-56d6-4729-884c-6816551d6d23
 
 
 ## Android
+[Screen_recording_20231229_171356.webm](https://github.com/NikhilBhutani/ComposeMultiplatformNewsAppDemo/assets/7945225/e9356fc8-1587-4ebc-afaf-6328dca6f0ed)
 
 
 
