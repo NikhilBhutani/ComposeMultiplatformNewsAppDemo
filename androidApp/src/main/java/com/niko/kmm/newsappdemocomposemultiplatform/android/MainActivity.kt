@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.niko.kmm.newsappdemocomposemultiplatform.NewsAppTheme
+import com.niko.kmm.newsappdemocomposemultiplatform.MyApplicationTheme
 import com.niko.kmm.newsappdemocomposemultiplatform.presentation.App
 
 class MainActivity : ComponentActivity() {
@@ -26,7 +26,7 @@ fun GreetingView(text: String) {
 @Preview
 @Composable
 fun DefaultPreview() {
-    NewsAppTheme {
+    MyApplicationTheme {
         GreetingView("Hello, Android!")
     }
 }

@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -54,6 +55,9 @@ kotlin {
             implementation(libs.kotinxSerializationJson)
             implementation(libs.kotinxSerializationCore)
 
+            implementation(libs.voyager.navigator)
+            implementation(libs.voyager.screenModel)
+            implementation(libs.voyager.transitions)
             implementation(libs.kermit)
 
             api(libs.imageLoader)
@@ -65,11 +69,12 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.ktorClientAndroid)
             implementation(libs.koinAndroid)
-//                implementation(Deps.SqlDelight.androidDriver)
+            implementation(libs.sqldelightAndroid)
         }
 
         iosMain.dependencies {
             implementation(libs.ktorClientDarwin)
+            implementation(libs.sqldelightNativeDriver)
         }
     }
 }
@@ -83,5 +88,13 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+sqldelight {
+    databases {
+        create("NewsAppDatabase") {
+            packageName.set("com.niko.kmm.newsappdemocomposemultiplatform.data.database")
+        }
     }
 }

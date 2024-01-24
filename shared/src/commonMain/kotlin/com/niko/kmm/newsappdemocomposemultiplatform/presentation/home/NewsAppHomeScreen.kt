@@ -1,22 +1,19 @@
-package com.niko.kmm.newsappdemocomposemultiplatform.presentation
+package com.niko.kmm.newsappdemocomposemultiplatform.presentation.home
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import kotlinx.coroutines.launch
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import com.niko.kmm.newsappdemocomposemultiplatform.presentation.details.NewsDetailScreen
 
 @Composable
 fun NewsAppHomeScreen(
@@ -28,39 +25,25 @@ fun NewsAppHomeScreen(
         contentColor = MaterialTheme.colorScheme.onBackground,
         topBar = { TopBar() }
     ) { padding ->
-        when {
-            state.isError -> {
-                ShowErrorSnackBar(state.errorString)
-            }
+        val screenNavigator = LocalNavigator.currentOrThrow
+        LazyColumn(modifier = Modifier.padding(padding)) {
 
-            else -> {
-                LazyColumn(modifier = Modifier.padding(padding)) {
-
-                    items(state.newsHeadlinesUi.size) {
-                        NewsHeadLineItem(state.newsHeadlinesUi[it])
+            items(state.newsHeadlinesUi.size) {
+                NewsHeadLineItem(
+                    newsHeadLine = state.newsHeadlinesUi[it],
+                    onItemClick = { newsHeadlineUI ->
+                        screenNavigator.push(NewsDetailScreen(newsHeadlineUI.title))
                     }
-
-                }
+                )
             }
+
         }
-
-
-    }
-}
-
-@Composable
-fun ShowErrorSnackBar(errorString: String) {
-    val snackbarHostState = remember { SnackbarHostState() }
-    val snackBarHost = SnackbarHost(snackbarHostState)
-    val coroutineScope = rememberCoroutineScope()
-    coroutineScope.launch {
-        snackbarHostState.showSnackbar(message = errorString, duration = SnackbarDuration.Long)
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun TopBar() {
+private fun TopBar() {
     TopAppBar(
         title = {
             Text(

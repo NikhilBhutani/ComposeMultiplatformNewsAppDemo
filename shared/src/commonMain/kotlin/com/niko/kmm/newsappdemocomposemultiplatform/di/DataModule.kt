@@ -1,7 +1,9 @@
 package com.niko.kmm.newsappdemocomposemultiplatform.di
 
+import com.niko.kmm.newsappdemocomposemultiplatform.data.database.NewsLocalDataSource
+import com.niko.kmm.newsappdemocomposemultiplatform.data.database.NewsLocalDataSourceImpl
 import com.niko.kmm.newsappdemocomposemultiplatform.data.remote.HomeApi
-import com.niko.kmm.newsappdemocomposemultiplatform.data.mapper.RemoteDataMapper
+import com.niko.kmm.newsappdemocomposemultiplatform.data.mapper.DataMapper
 import com.niko.kmm.newsappdemocomposemultiplatform.data.remote.NewsRemoteDataSource
 import com.niko.kmm.newsappdemocomposemultiplatform.data.remote.NewsRemoteDataSourceImpl
 import com.niko.kmm.newsappdemocomposemultiplatform.data.repository.GetNewsRepositoryImpl
@@ -14,12 +16,16 @@ fun dataModule() = module {
         NewsRemoteDataSourceImpl(get())
     }
 
+    single<NewsLocalDataSource> {
+        NewsLocalDataSourceImpl(get())
+    }
+
     single {
-        RemoteDataMapper()
+        DataMapper()
     }
 
     single<GetNewsRepository>{
-        GetNewsRepositoryImpl(get(), get())
+        GetNewsRepositoryImpl(get(), get(), get())
     }
 
     single {

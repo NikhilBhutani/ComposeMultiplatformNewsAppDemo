@@ -1,4 +1,4 @@
-package com.niko.kmm.newsappdemocomposemultiplatform.presentation
+package com.niko.kmm.newsappdemocomposemultiplatform.presentation.home
 
 import com.niko.kmm.newsappdemocomposemultiplatform.domain.usecase.GetNewsUseCaseImpl
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
@@ -21,9 +21,12 @@ class NewsHomeViewModel(
 
     init {
         handleEvents()
-        viewModelScope.launch(Dispatchers.IO) {
+    }
 
-            runCatching {
+    suspend fun getNews() {
+        viewModelScope.launch(Dispatchers.IO) {
+            _state.update { newsHeadlineViewState ->
+                newsHeadlineViewState.copy(newsHeadlinesUi =
                 newsHeadUseCaseImpl.invoke()
                     .filter { it.author.isNotEmpty() }
                     .map {
@@ -38,23 +41,10 @@ class NewsHomeViewModel(
                             url = "",
                         )
                     }
-            }.onSuccess {
-                _state.update { newsHeadlineViewState ->
-                    newsHeadlineViewState.copy(newsHeadlinesUi = it)
-                }
-            }.onFailure {
-                _state.update {
-                    newsHeadlineViewState ->
-                    newsHeadlineViewState.copy(
-                        isError = true,
-                        errorString = it.message ?: "Generic error, please debug"
-                    )
-                }
+                )
             }
-
         }
     }
-
 
     fun dispatch(events: HomeScreenEvents) {
         viewModelScope.launch {

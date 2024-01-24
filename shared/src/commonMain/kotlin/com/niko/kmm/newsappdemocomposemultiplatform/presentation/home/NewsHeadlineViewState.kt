@@ -1,4 +1,4 @@
-package com.niko.kmm.newsappdemocomposemultiplatform.presentation
+package com.niko.kmm.newsappdemocomposemultiplatform.presentation.home
 
 import androidx.compose.runtime.Immutable
 
