@@ -14,6 +14,7 @@ koinAndroidCompose = "3.4.6"
 sqlDelight = "2.0.0"
 kotlinxSerialization = "1.6.1"
 kermit = "2.0.0-RC4"
+voyager = "1.0.0"
 
 [libraries]
 imageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "imageLoaderVersion" }
@@ -42,6 +43,11 @@ koinCompose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "
 kotinxSerializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 kotinxSerializationCore = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerialization" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
+voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
+voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
+sqldelightAndroid = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
+sqldelightNativeDriver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -52,3 +58,4 @@ kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = 
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 #kotlinSerialization = { id = "kotlinx-serialization" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "jetbrainsCompose" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }

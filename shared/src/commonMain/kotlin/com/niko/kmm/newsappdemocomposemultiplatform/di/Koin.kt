@@ -10,7 +10,7 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
             networkModule(
                 enableNetworkLogs =
                 true
-            ), dataModule(), domainModule(), platformModule(), presentationModule()
+            ), dataModule(), domainModule(), platformModule()
         )
 
     }

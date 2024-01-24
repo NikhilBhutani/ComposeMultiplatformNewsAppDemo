@@ -1,6 +1,7 @@
-package com.niko.kmm.newsappdemocomposemultiplatform.presentation
+package com.niko.kmm.newsappdemocomposemultiplatform.presentation.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,9 +16,16 @@ import androidx.compose.ui.unit.sp
 import com.seiko.imageloader.rememberImagePainter
 
 @Composable
-fun NewsHeadLineItem(newsHeadLine: NewsHeadlineUI) {
+fun NewsHeadLineItem(
+    newsHeadLine: NewsHeadlineUI,
+    onItemClick: (NewsHeadlineUI) -> Unit
+) {
 
-    Column(modifier = Modifier.fillMaxWidth().padding(20.dp)) {
+    Column(
+        modifier = Modifier.clickable {
+            onItemClick(newsHeadLine)
+        }.fillMaxWidth().padding(20.dp)
+    ) {
         val painter =
             rememberImagePainter(newsHeadLine.urlToImage)
         Image(
@@ -39,41 +47,4 @@ fun NewsHeadLineItem(newsHeadLine: NewsHeadlineUI) {
             fontSize = 16.sp,
         )
     }
-
-//    Row(
-//        modifier = Modifier.fillMaxWidth().padding(16.dp)
-//    ) {
-//        Column(modifier = Modifier) {
-//            val painter =
-//                rememberImagePainter(newsHeadLine.urlToImage)
-//            Image(
-//                painter, null,
-//                modifier = Modifier.weight(0.5f),
-//            )
-//
-//
-//            Text(
-//                text = newsHeadLine.title,
-//                fontSize = 18.sp,
-//                fontWeight = FontWeight.Bold,
-//                color = Color.Black,
-//            )
-//
-//            Text(
-//                modifier = Modifier.padding(top = 4.dp),
-//                text = newsHeadLine.description,
-//                fontSize = 16.sp,
-//            )
-//        }
-//
-////        Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
-//
-//    }
 }
-
-
-//@Preview
-//@Composable
-//fun preview() {
-//    //NewsHeadLineItem(state.newsHeadlinesUi.get(it))
-//}

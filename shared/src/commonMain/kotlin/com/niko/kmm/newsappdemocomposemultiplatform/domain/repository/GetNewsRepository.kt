@@ -4,4 +4,6 @@ import com.niko.kmm.newsappdemocomposemultiplatform.domain.model.NewsHeadline
 
 interface GetNewsRepository {
     suspend fun getHeadlines(): List<NewsHeadline>
+
+    suspend fun getDetailedNewsOfTitle(title: String): NewsHeadline
 }

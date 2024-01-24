@@ -1,0 +1,23 @@
+CREATE TABLE NewsTable (
+    title TEXT NOT NULL,
+    content TEXT,
+    description TEXT,
+    publishedAt TEXT NOT NULL,
+    author TEXT,
+    url TEXT,
+    urlToImage TEXT NOT NULL,
+    sourceId TEXT NOT NULL,
+    sourceName TEXT
+);
+
+insertNews:
+INSERT INTO NewsTable(title, content, description, publishedAt, author, url, urlToImage, sourceId, sourceName)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+removeAllNews:
+DELETE FROM NewsTable;
+
+selectNewsInfo:
+SELECT *
+FROM NewsTable
+WHERE title = ?;

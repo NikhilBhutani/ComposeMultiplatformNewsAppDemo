@@ -3,10 +3,12 @@ package com.niko.kmm.newsappdemocomposemultiplatform.di
 import io.ktor.client.engine.darwin.Darwin
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
+import com.niko.kmm.newsappdemocomposemultiplatform.data.database.DatabaseDriverFactory
 import org.koin.dsl.module
 
 actual fun platformModule() = module {
     single { Darwin.create() }
+    single { DatabaseDriverFactory() }
 }
 
 

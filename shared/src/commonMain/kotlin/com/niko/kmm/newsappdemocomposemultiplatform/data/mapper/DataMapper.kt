@@ -4,7 +4,7 @@ import com.niko.kmm.newsappdemocomposemultiplatform.data.models.NewsHeadlinesJso
 import com.niko.kmm.newsappdemocomposemultiplatform.domain.model.NewsHeadline
 import org.koin.core.component.KoinComponent
 
-class RemoteDataMapper() : KoinComponent {
+class DataMapper() : KoinComponent {
 
     operator fun invoke(newsHeadlinesJson: NewsHeadlinesJson): List<NewsHeadline> {
         return newsHeadlinesJson.articles.map {
