@@ -8,11 +8,14 @@ The code follows clean architecture approach keeping the data, domain and presen
 
 ## Libraries
 
+- Moko for MVVM
 - kotlinx coroutines
 - ktor (HTTP client)
 - Koin (Dependency Injection)
 - Jetbrains Compose
-- Moko for MVVM
+- Material Design 3
+- SqlDelight for database (both ios and android)
+
 
 For rest api, I am using [NewsAPI](https://newsapi.org/)
 
