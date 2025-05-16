@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import cafe.adriel.voyager.navigator.LocalNavigator
@@ -26,11 +27,15 @@ fun NewsAppHomeScreen(
         topBar = { TopBar() }
     ) { padding ->
         val screenNavigator = LocalNavigator.currentOrThrow
-        LazyColumn(modifier = Modifier.padding(padding)) {
+        val baseModifier = remember { padding }
 
-            items(state.newsHeadlinesUi.size) {
+
+        LazyColumn(modifier = Modifier.padding(padding)) {
+            val newsHeadlineUIList = state.newsHeadlinesUi
+            items(
+                count = newsHeadlineUIList.size, key = { newsHeadlineUIList[0].title }) {
                 NewsHeadLineItem(
-                    newsHeadLine = state.newsHeadlinesUi[it],
+                    newsHeadLine = newsHeadlineUIList[it],
                     onItemClick = { newsHeadlineUI ->
                         screenNavigator.push(NewsDetailScreen(newsHeadlineUI.title))
                     }
@@ -40,6 +45,7 @@ fun NewsAppHomeScreen(
         }
     }
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

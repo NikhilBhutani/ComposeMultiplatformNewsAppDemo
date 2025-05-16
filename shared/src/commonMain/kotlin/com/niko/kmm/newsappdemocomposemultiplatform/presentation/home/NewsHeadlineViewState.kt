@@ -12,8 +12,8 @@ data class NewsHeadlineViewState(
 
 @Immutable
 data class NewsHeadlineUI(
-    var author: String,
-    var content: String,
+    val author: String,
+    val content: String,
     val title: String,
     val description: String,
     val source: String,
